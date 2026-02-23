@@ -1,0 +1,10 @@
+/* This removes the blue outline from all elements */
+*:focus {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* This specifically targets buttons or cards if they are buttons */
+button:focus, div:focus {
+    outline: none;
+}
