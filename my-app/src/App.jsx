@@ -507,6 +507,7 @@ export default function App() {
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Patrick+Hand&family=Architects+Daughter&display=swap');
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html, body { height: 100%; }
         body { background: #f2ead8; min-height: 100vh; font-family: 'Lora', Georgia, serif; }
         button { outline: none; }
         button:focus-visible { outline: 2px solid #7a6250; outline-offset: 3px; }
@@ -517,15 +518,15 @@ export default function App() {
 
       <div style={{
         minHeight: "100vh",
-        padding: "calc(clamp(32px, 6vw, 72px) + 12px) clamp(20px, 6vw, 72px) calc(clamp(32px, 6vw, 72px) + 12px)",
         maxWidth: "860px",
         margin: "0 auto",
+        padding: "0 clamp(20px, 6vw, 72px)",
         display: "flex",
         flexDirection: "column",
       }}>
 
         {/* Logo + subtext — always at top, fixed position in flow */}
-        <div style={{ marginBottom: "clamp(36px, 7vw, 64px)", flexShrink: 0 }}>
+        <div style={{ paddingTop: "calc(clamp(32px, 6vw, 72px) + 12px)", marginBottom: "clamp(36px, 7vw, 64px)", flexShrink: 0 }}>
           <h1 style={{
             fontFamily: "'Lora', Georgia, serif",
             fontSize: "clamp(3rem, 9vw, 4.8rem)",
@@ -600,6 +601,31 @@ export default function App() {
           />
         )}
         </div>
+
+        {/* Footer — inside container, left-aligned with content, clears bottom stripe */}
+        <div style={{
+          flexShrink: 0,
+          paddingTop: "clamp(20px, 3vw, 32px)",
+          paddingBottom: "calc(12px + 16px)",
+          display: "flex",
+          flexDirection: "column",
+          gap: "4px",
+        }}>
+          <span style={{
+            fontFamily: "'Patrick Hand', cursive",
+            fontSize: "0.72rem",
+            color: "#a08060",
+            letterSpacing: "0.08em",
+            textTransform: "uppercase",
+          }}>© 2026 Richa Kandoi. All rights reserved.</span>
+          <span style={{
+            fontFamily: "'Lora', Georgia, serif",
+            fontStyle: "italic",
+            fontSize: "0.72rem",
+            color: "#b09070",
+          }}>Made with the intention to make connecting easier.</span>
+        </div>
+
       </div>
     </>
   );
